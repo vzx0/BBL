@@ -1,13 +1,18 @@
 {
-    "buildCommand": "vite build",
-    "outputDirectory": "dist",
-    "framework": "vite",
-    "installCommand": "npm install",
-    "devCommand": "vite dev",
-    "rewrites": [
-      {
-        "source": "/(.*)",
-        "destination": "/index.html"
-      }
-    ]
+  "framework": "vite",
+  "buildCommand": "vite build --mode production",
+  "outputDirectory": "dist",
+  "installCommand": "npm ci",
+  "devCommand": "vite",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ],
+  "functions": {
+    "app/api/**/*.ts": {
+      "runtime": "@vercel/node"
+    }
   }
+}
